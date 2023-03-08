@@ -159,6 +159,8 @@
   justify-content: center;
   border-bottom: 1px solid white;
 }
+
+
 .btn-category{
   padding: 20px 30px;
   width: 25%;
