@@ -17,7 +17,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
   .app-wrapper{
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;

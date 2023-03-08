@@ -7,12 +7,26 @@
 </script>
 
 <template>
-<TheJoke 
-    :jokes="jokes" 
-    button-color="#ff615d" 
-    @handleClick="(id) => {deleteJokeFromFavourites(id)}"
-    text="Remove from favourites"
-  />
+<div class="jokes-wrapper">
+    <div class="jokes-sectionWrapper">
+      <TheJoke 
+        v-for="(joke, index) in jokes1" :key="index"
+        :joke="joke" 
+        button-color="#FA5F55" 
+        @handleClick="(id) => {deleteJokeFromFavourites(id)}"
+        text="DELETE"
+      />
+    </div>
+    <div class="jokes-sectionWrapper mt-100">
+      <TheJoke 
+        v-for="(joke, index) in jokes2" :key="index"
+        :joke="joke" 
+        button-color="#FA5F55" 
+        @handleClick="(id) => {deleteJokeFromFavourites(id)}"
+        text="DELETE"
+      />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -22,7 +36,9 @@ const toast = useToast();
 export default {
 
   data: () => ({
-    jokes: [] as Joke[]
+    jokes: [] as Joke[],
+    jokes1: [] as Joke[],
+    jokes2: [] as Joke[]
   }),
 
   created() {
@@ -36,7 +52,8 @@ export default {
         if(!data){
           return
         }
-        this.jokes = data
+        this.jokes1 = data.slice(0, Math.ceil(data.length/2))
+        this.jokes2 = data.slice(Math.ceil(data.length/2))
       })
     },
 
@@ -53,3 +70,17 @@ export default {
   }
 }
 </script>
+
+<style>
+.jokes-wrapper{
+  display: flex;
+}
+.jokes-sectionWrapper{
+  width: 50%;
+  padding: 30px 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+</style>

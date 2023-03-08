@@ -1,6 +1,6 @@
 <script setup lang="ts">
   defineProps<{
-    jokes: Joke[]
+    joke: Joke
     buttonColor: string
     text: string
 }>()
@@ -8,10 +8,12 @@
 
 <template>
   <div class="jokes-wrapper">
-    <div class="joke" v-for="(joke, index) in jokes" :key="index">
-      <p class="joke-content">
-        {{ joke.joke }}
-      </p>
+    <div class="joke">
+      <div class="joke-content">
+        <p>
+          {{ joke.joke }}
+        </p>
+      </div>
     <button 
       class="button-add"
       :style="{backgroundColor: buttonColor}"
@@ -44,37 +46,46 @@
 </script>
 
 <style scoped>
-.jokes-wrapper{
-  padding: 30px 0;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+
 .joke{
-  width: 100%;
+  width: 95%;
+  min-height: 250px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  background-color: rgb(14, 93, 93);
+  align-items: flex-start;
+  flex-direction: column;
+  background-image: url('../assets/joke-background.jpg');
+  background-position: center;
+  background-size: cover;
   border-radius: 5px;
   color: white;
   overflow: hidden;
 }
 .joke-content{
-  padding: 10px;
-  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 30px;
+  width: 60%;
+  box-shadow: 0 0 30px -1px black;
+  background-color: rgba(0, 0, 0, 0.604);
+  height: 100%;
+
 }
 .button-add{
-  width: 10%;
+  width: 100%;
   padding: 5px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
+  opacity: 70%;
+  transition: all 0.2s ease-in;;
 }
 .button-add:hover{
-  opacity: 60%;
+  opacity: 100%;
   box-shadow: 0 0 10px aquamarine;
 }
 
