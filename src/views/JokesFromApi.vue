@@ -143,7 +143,6 @@
   flex-direction: column;
   gap: 20px;
 }
-
 .category-wrapper{
   width: 100%;
   margin: 30px auto 0 auto;
@@ -159,8 +158,6 @@
   justify-content: center;
   border-bottom: 1px solid white;
 }
-
-
 .btn-category{
   padding: 20px 30px;
   width: 25%;
@@ -196,6 +193,5 @@
 .pt-150{
   padding-top: 150px;
 }
-
 
 </style>
